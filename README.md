@@ -1,6 +1,6 @@
 # Machine-Learning-Framework
 This repository is to be used as a guide for machine learning projects.
-Below are the section to be discussed:
+Below are the sections to be discussed:
 - Research Question or Problem Definition
 - Data 
 - Evaluation
@@ -49,21 +49,38 @@ Streaming data refers to data that is generated continuously and can include sen
 ### Exploratory Data Analysis (EDA)
 EDA refers to the process where the data is analyzed to understand its structure, identify patterns, and detect anomalies. EDA can also help to identify potential preprocessing steps that may be necessary before training a machine learning model.
 
-## Evaluation
-- Decision on what defines a successful outcome
-- Performance Metrics
-- TODO
-
 ## Features
 - Numeric
 - Categorical
-- Derived
-- TODO
-- TODO
+- Derived - Feature Engineering
 
 ## Modeling
+
+### Data Split
+- training (.7/.8) and testing (.3/.2) sets 
+- training (.7/.8), validation (.1/.15), and testing (.1/.15) sets
+
+### Model Selection
 - Based on data insight gathered up until now and the problem defined, decide on applicable models to implement.
+- Typically, for Structured data Random Forest, XGBoost, and CatBoost work best, whereas for Unstructured data Deep Learning and Transfer Learning work best.
+
+### Model Tuning
 - TODO
 - TODO
 
+### Model Comparison
+- TODO
+- TODO
+
+## Evaluation
+Once research question was formulated, data analyzed, and model(s) selected, it is important to decide 'what defined a successful model's outcome'.
+There are different evaluation metrics available for classification and regression models, and thus definition of success could mean achieving an evaluation metrics result being equal or greater for classification (say, 95% for accuracy) or lower for regression (say, Mean Absolute Error).  
+
+### Evaluation Metrics for Classification models
+There are many metrics available for classification type models to consider, such as Accuracy, Recall, Precision, etc.
+### Evaluation Metrics for Regression models
+There are many metrics available for regression type models to consider, such as MAE, RMSE, etc.
+
 ## Experiment/Test
+- TODO
+- TODO
