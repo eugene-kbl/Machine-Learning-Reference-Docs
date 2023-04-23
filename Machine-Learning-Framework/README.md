@@ -13,15 +13,14 @@ Below are the sections to be discussed:
 	- Streaming Data
 	- Exploratory Data Analysis
 - Features
+- Evaluation
+	- Evaluation Metrics for Classification models
+	- Evaluation Metrics for Regression models
 - Modeling
 	- Data Split
 	- Model Selection
 	- Model Tuning
 	- Model Comparison
-- Evaluation
-	- Evaluation Metrics for Classification models
-	- Evaluation Metrics for Regression models
-- Experiment/Test
 
 ## 1. Research Question or Problem Definition
 - It is crucial to establish the problem or question that needs to be addressed before beginning the coding process.
@@ -69,33 +68,55 @@ EDA refers to the process where the data is analyzed to understand its structure
 - Categorical
 - Derived - Feature Engineering
 
-## 4. Modeling
+## 4. Evaluation
+Once research question was formulated, data analyzed, and model(s) selected, it is important to decide 'what defined a successful model's outcome'.
+There are different evaluation metrics available for classification and regression models, and thus definition of success could mean achieving an evaluation metrics result being equal or greater for classification (say, 95% for accuracy) or lower for regression (say, Mean Absolute Error).  
 
-### 4.1 Data Split
+### 4.1 Evaluation Metrics for Classification models
+There are many metrics available for classification type models to consider, such as Accuracy, Recall, Precision, etc.
+### 4.2 Evaluation Metrics for Regression models
+There are many metrics available for regression type models to consider, such as MAE, RMSE, etc.
+
+## 5. Modeling
+
+### 5.1 Data Split
 - training (.7/.8) and testing (.3/.2) sets 
 - training (.7/.8), validation (.1/.15), and testing (.1/.15) sets
 
-### 4.2 Model Selection
+### 5.2 Model Selection
 - Based on data insight gathered up until now and the problem defined, decide on applicable models to implement.
-- Typically, for Structured data Random Forest, XGBoost, and CatBoost work best, whereas for Unstructured data Deep Learning and Trasfer Learning work best.
+- Typically, for Structured data Random Forest, XGBoost, and CatBoost work best, whereas for Unstructured data Deep Learning and Transfer Learning work best.
+- Assess initial performance of models, on the training set or a subset of it, with respect to selected performance metrics score and training time. 
+- Consider the potential trade off of metrics score and training time.
 
-### 4.3 Model Tuning
-- TODO
-- TODO
+### 5.3 Model Tuning
+Once model's initial performance is acceptable based on the trade off, use validation set for tuning and/or training set (if data was split into two sets).
+- Hyperparameters can be adjusted
+- Hyperparameters are depended on selected models.
+	- e.g., Adjusting number of trees or depth for Decision Tree or Random Forest algorithms.
 
-### 4.3 Model Comparison
-- TODO
-- TODO
+### 5.4 Model Comparison
+Model comparison is done on test set. A good model will yield similar results on the training, validation, and test sets. However, it is not uncommon to see a decline in performance (underfitting of overfitting).
+- Underfitting
+	- Training set has a significantly higher performance than a test set.
+- Overfitting
+	- Test set has a significantly higher performance than a training set.
 
-## 5. Evaluation
-Once reseach question was formulated, data analyzed, and model(s) selected, it is important to decide 'what defined a successful model's outcome'.
-There are different evaluation metrics available for classification and regression models, and thus definition of success could mean achieving an evaluation metrics result being equal or greater for classification (say, 95% for accuracy) or lower for regression (say, Mean Absolute Error).  
+Overfitting and Underfitting refer to a model not being able to generalize well. 
+There are several reasons which this can happens, typically it is due to data leakage and data mismatch. 
 
-### 5.1 Evaluation Metrics for Classification models
-There are many metrics available for classification type models to consider, such as Accuracy, Recall, Precision, etc..
-### 5.2 Evaluation Metrics for Regression models
-There are many metrics available for regression type models to consider, such as MAE, RMSE, etc..
+Data leakage happens when some of test data leaks into training data and thus results in overfitting.
+Data mismatch happens when testing data is different than training data, such as having different features in the sets. Therefore, it is important to train data on the same kind of data as test data.
 
-## 6. Experiment/Test
-- TODO
-- TODO
+To tackle over and under fitting, several approaches can be considered:
+- Underfitting
+	- Try different models 
+	- Tune model hyperparameters
+	- Reduce number of features
+	- Other
+- Overfitting
+	- Collect more data
+	- Try different models
+
+Lastly, while comparing different models, it is important to compare the trade offs of performance metrics scope, training time, and testing time to select the model which not only helps to answer the research question well but also the time it took to produce the results (optimization for performance or prediction time trade offs).
+
